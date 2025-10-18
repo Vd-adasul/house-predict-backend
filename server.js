@@ -19,7 +19,10 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
 // Simple health
-app.get("/", (_, res) => res.send({ status: "ok", model: "y = 4x + 2" }));
+app.get("/", (req, res) => {
+  res.send({ status: "ok", model: "y = 4x + 2" });
+});
+
 
 // POST /predict { size: number }
 app.post("/predict", async (req, res) => {
